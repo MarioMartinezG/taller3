@@ -1,5 +1,7 @@
 package co.edu.unbosque.tinder.model;
 
+import java.util.ArrayList;
+
 public class UserModel {
 	private String username;
 	private String password;
