@@ -1,7 +1,7 @@
 package co.edu.unbosque.tinder.model;
 
 public class UserModel {
-	private String user;
+	private String username;
 	private String password;
 	private ProfileModel profile;
 
@@ -18,14 +18,14 @@ public class UserModel {
 	 * @return the user
 	 */
 	public String getUser() {
-		return user;
+		return username;
 	}
 
 	/**
 	 * @param user the user to set
 	 */
 	public void setUser(String user) {
-		this.user = user;
+		this.username = user;
 	}
 
 	/**
@@ -54,6 +54,11 @@ public class UserModel {
 	 */
 	public void setProfile(ProfileModel profile) {
 		this.profile = profile;
+	}
+	
+	public boolean login(String username, String password, ArrayList<UserModel> userDB) {
+		
+		return true;
 	}
 
 }
