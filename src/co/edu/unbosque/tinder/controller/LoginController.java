@@ -18,7 +18,7 @@ public class LoginController {
 	public LoginController(MainView mainView, UserModel userModel) {
 		this.mainView = mainView;
 
-		this.mainView.getLoginBtn().addActionListener(new ActionListener() {
+		/*this.mainView.getLoginBtn().addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -34,7 +34,7 @@ public class LoginController {
 
 			}
 
-		});
+		});*/
 	}
 
 }
