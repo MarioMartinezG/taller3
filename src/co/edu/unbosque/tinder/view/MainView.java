@@ -1,12 +1,10 @@
 package co.edu.unbosque.tinder.view;
 
-import java.awt.Component;
 import java.awt.Font;
 
 import javax.swing.*;
 
 public class MainView {
-
 	private JFrame mainView;
 	private JTextField userFld;
 	private JTextField contraseñaFld;
@@ -45,7 +43,7 @@ public class MainView {
 		this.contraseñaFld = new JTextField();
 		this.contraseñaFld.setBounds(40, 155, 420, 30);
 		this.mainView.add(this.contraseñaFld);
-		
+
 		this.loginBtn = new JButton("Ingresar");
 		this.loginBtn.setBounds(40, 200, 200, 40);
 		this.mainView.add(this.loginBtn);
@@ -61,7 +59,7 @@ public class MainView {
 		this.mainView.setVisible(true);
 
 	}
-	
+
 	public void showErrorMessage(String message) {
 		JOptionPane.showMessageDialog(this.mainView, message, "Error", JOptionPane.ERROR_MESSAGE);
 	}
@@ -81,7 +79,4 @@ public class MainView {
 	public JButton getRegistarBtn() {
 		return registarBtn;
 	}
-	
-	
-
 }

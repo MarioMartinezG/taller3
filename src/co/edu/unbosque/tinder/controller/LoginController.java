@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-import co.edu.unbosque.tinder.model.ProfileModel;
 import co.edu.unbosque.tinder.model.UserModel;
 import co.edu.unbosque.tinder.view.MainView;
 import co.edu.unbosque.tinder.view.MenuView;
@@ -20,7 +19,6 @@ public class LoginController {
 	 */
 	public LoginController(MainView mainView, UserModel userModel) {
 		this.mainView = mainView;
-
 		this.mainView.getRegistarBtn().addActionListener(new ActionListener() {
 
 			@Override
@@ -33,16 +31,6 @@ public class LoginController {
 					userModel.createUser(username, password, userDB);
 
 					System.out.println("Usuarios registrados: " + userDB);
-
-					/*
-					 * UserModel loggedUser = userModel.login(username, password, userDB);
-					 * 
-					 * if (loggedUser != null) { 
-					 * // new MenuController(new MenuView(loggedUser), new
-					 * ProfileModel(loggedUser)); System.out.println("Usuario encontrado!!!"); }
-					 * else {
-					 * mainView.showErrorMessage("Nombre de Usuario o Contraseña incorrecto."); }
-					 */
 
 				} catch (Exception e1) {
 					System.out.println("Error inesperado");
@@ -64,17 +52,15 @@ public class LoginController {
 
 					UserModel loggedUser = userModel.login(username, password, userDB);
 					if (loggedUser != null) { 
-						//new MenuController(new MenuView(loggedUser), new ProfileModel(loggedUser)); 
+						new MenuController(new MenuView(loggedUser), loggedUser); 
 						System.out.println("Usuario encontrado!!!"); 
 					} else {
 						mainView.showErrorMessage("Nombre de Usuario o Contraseña incorrecto."); 
-					}
-					
+					}	
 				} catch (Exception e1) {
 					System.out.println("Error inesperado");
 					e1.printStackTrace();
 				}
-
 			}
 
 		}); 

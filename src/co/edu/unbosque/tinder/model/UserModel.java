@@ -6,6 +6,7 @@ public class UserModel {
 	private String username;
 	private String password;
 	private ProfileModel profile;
+	private PreferenceModel preference;
 
 	/**
 	 * @param user
@@ -60,6 +61,14 @@ public class UserModel {
 	 */
 	public void setProfile(ProfileModel profile) {
 		this.profile = profile;
+	}
+
+	public PreferenceModel getPreference() {
+		return preference;
+	}
+
+	public void setPreference(PreferenceModel preference) {
+		this.preference = preference;
 	}
 
 	/**

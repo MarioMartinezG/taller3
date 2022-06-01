@@ -17,7 +17,7 @@ public class ProfileModel {
 		this.setComplete(false);
 	}
 
-	public ProfileModel(UserModel loggedUser) {
+	public ProfileModel() {
 		// TODO Auto-generated constructor stub
 	}
 
