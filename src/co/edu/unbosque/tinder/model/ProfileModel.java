@@ -17,6 +17,10 @@ public class ProfileModel {
 		this.setComplete(false);
 	}
 
+	public ProfileModel(UserModel loggedUser) {
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
 	 * @return the name
 	 */

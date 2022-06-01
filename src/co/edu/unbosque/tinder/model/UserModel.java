@@ -16,6 +16,10 @@ public class UserModel {
 		this.setPassword(password);
 	}
 
+	public UserModel() {
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
 	 * @return the user
 	 */
@@ -57,10 +61,32 @@ public class UserModel {
 	public void setProfile(ProfileModel profile) {
 		this.profile = profile;
 	}
-	
-	public boolean login(String username, String password, ArrayList<UserModel> userDB) {
-		
-		return true;
+
+	/**
+	 * @param username
+	 * @param password
+	 * @param userDB
+	 * @return login
+	 */
+	public UserModel login(String username, String password, ArrayList<UserModel> userDB) {
+		for (UserModel user : userDB) {
+			if (username.equals(user.getUser()) && password.equals(user.getPassword())) {
+				return user;
+			}
+		}
+
+		return null;
+	}
+
+	public void createUser(String username, String password, ArrayList<UserModel> userDB) {
+		UserModel newUser = new UserModel(username, password);
+
+		userDB.add(newUser);
+	}
+
+	@Override
+	public String toString() {
+		return "UserModel [username=" + username + ", password=" + password + ", profile=" + profile + "]";
 	}
 
 }
