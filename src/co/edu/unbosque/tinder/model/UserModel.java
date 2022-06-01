@@ -6,8 +6,6 @@ public class UserModel {
 	private String username;
 	private String password;
 	private ProfileModel profile;
-	
-	public UserModel() {}
 
 	/**
 	 * @param user
