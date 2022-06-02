@@ -26,7 +26,7 @@ public class LoginController {
 
 				try {
 					String username = mainView.getUserFld().getText();
-					String password = mainView.getContraseñaFld().getText();
+					String password = mainView.getPasswordFld().getText();
 
 					userModel.createUser(username, password, userDB);
 
@@ -48,14 +48,14 @@ public class LoginController {
 
 				try {
 					String username = mainView.getUserFld().getText();
-					String password = mainView.getContraseñaFld().getText();
+					String password = mainView.getPasswordFld().getText();
 
 					UserModel loggedUser = userModel.login(username, password, userDB);
 					if (loggedUser != null) { 
 						new MenuController(new MenuView(loggedUser), loggedUser); 
 						System.out.println("Usuario encontrado!!!"); 
 					} else {
-						mainView.showErrorMessage("Nombre de Usuario o Contraseña incorrecto."); 
+						mainView.showErrorMessage("Nombre de Usuario o Contraseï¿½a incorrecto."); 
 					}	
 				} catch (Exception e1) {
 					System.out.println("Error inesperado");

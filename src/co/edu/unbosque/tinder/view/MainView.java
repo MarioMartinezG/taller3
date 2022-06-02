@@ -7,7 +7,7 @@ import javax.swing.*;
 public class MainView {
 	private JFrame mainView;
 	private JTextField userFld;
-	private JTextField contraseñaFld;
+	private JTextField passwordFld;
 	private JButton loginBtn;
 	private JButton registarBtn;
 
@@ -34,15 +34,15 @@ public class MainView {
 		this.userFld.setBounds(40, 95, 420, 30);
 		this.mainView.add(this.userFld);
 
-		JLabel contraseñaLbl = new JLabel("Enter the password:");
-		contraseñaLbl.setBounds(40, 130, 420, 20);
-		contraseñaLbl.setFont(new Font("Serif", Font.PLAIN, 16));
-		contraseñaLbl.setHorizontalAlignment(SwingConstants.CENTER);
-		this.mainView.add(contraseñaLbl);
+		JLabel passwordLbl = new JLabel("Enter the password:");
+		passwordLbl.setBounds(40, 130, 420, 20);
+		passwordLbl.setFont(new Font("Serif", Font.PLAIN, 16));
+		passwordLbl.setHorizontalAlignment(SwingConstants.CENTER);
+		this.mainView.add(passwordLbl);
 
-		this.contraseñaFld = new JTextField();
-		this.contraseñaFld.setBounds(40, 155, 420, 30);
-		this.mainView.add(this.contraseñaFld);
+		this.passwordFld = new JTextField();
+		this.passwordFld.setBounds(40, 155, 420, 30);
+		this.mainView.add(this.passwordFld);
 
 		this.loginBtn = new JButton("Ingresar");
 		this.loginBtn.setBounds(40, 200, 200, 40);
@@ -68,8 +68,8 @@ public class MainView {
 		return userFld;
 	}
 
-	public JTextField getContraseñaFld() {
-		return contraseñaFld;
+	public JTextField getPasswordFld() {
+		return passwordFld;
 	}
 
 	public JButton getLoginBtn() {
