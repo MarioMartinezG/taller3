@@ -19,10 +19,13 @@ public class RegisterView {
 	private JTextField genderLbl;
 	private JTextField descriptionLbl;
 	private JButton loginBtn;
+	private JTextField passwordFld;
+	private JTextField userFld;
+	private JTextField fotoUserLbl;
 	
-	private String[] NACIONALITY_OPTS = { "Colombiano ", "Chileno ", "Mexicano", "Otro" };
-	private String[] COUNTRY_OPTS = { "Bogota ","Ciudad de Mexico", "Cali", "Medelllin", "Puebla", "Santiago de Chile ", "Veracruz", "Otro" };
-	private String[] GENDER_OPTS = { "Female ", "Male ", "Oter" };
+	private String[] NACIONALITY_OPTS = { " ", "Colombiano ", "Chileno ", "Mexicano", "Other" };
+	private String[] COUNTRY_OPTS = { " ", "Bogota ", "Cali", "Ciudad de Mexico", "Medelllin", "Puebla", "Santiago de Chile ", "Veracruz", "Other" };
+	private String[] GENDER_OPTS = { " ", "Female ", "Male ", "Other" };
 
 	public RegisterView() {
 
@@ -48,21 +51,25 @@ public class RegisterView {
 		this.fullNombreLbl.setBounds(40, 95, 420, 30);
 		this.mainView.add(this.fullNombreLbl);
 		
+		JLabel fotoUserLbl = new JLabel("Foto:");
+		fotoUserLbl.setBounds(500, 70, 130, 20);
+		fotoUserLbl.setFont(new Font("Serif", Font.PLAIN, 16));
+		fotoUserLbl.setHorizontalAlignment(SwingConstants.CENTER);
+		this.mainView.add(fotoUserLbl);
+		
+		this.fotoUserLbl = new JTextField();
+		this.fotoUserLbl.setBounds(40, 95, 420, 30);
+		this.mainView.add(this.fotoUserLbl);
+		
 		JLabel nacionalityLbl = new JLabel("Nacionality:");
 		nacionalityLbl.setBounds(40, 130, 90, 20);
 		nacionalityLbl.setFont(new Font("Serif", Font.PLAIN, 16));
 		nacionalityLbl.setHorizontalAlignment(SwingConstants.CENTER);
 		this.mainView.add(nacionalityLbl);
-
-		this.nacionalityLbl = new JTextField();
-		this.nacionalityLbl.setBounds(40, 155, 420, 30);
-		this.mainView.add(this.nacionalityLbl);
-		
 		
 		JComboBox<String> nacionalityCbx = new JComboBox<String>(NACIONALITY_OPTS);
-		nacionalityCbx.setBounds(40, 100, 420, 20);
+		nacionalityCbx.setBounds(40, 155, 420, 30);
 		this.mainView.add(nacionalityCbx);
-		
 		
 		JLabel countryLbl = new JLabel("Country:");
 		countryLbl.setBounds(5, 190, 130, 20);
@@ -70,9 +77,9 @@ public class RegisterView {
 		countryLbl.setHorizontalAlignment(SwingConstants.CENTER);
 		this.mainView.add(countryLbl);
 
-		this.countryLbl = new JTextField();
-		this.countryLbl.setBounds(40, 215, 420, 30);
-		this.mainView.add(this.countryLbl);
+		JComboBox<String> countryCbx = new JComboBox<String>(COUNTRY_OPTS);
+		countryCbx.setBounds(40, 215, 420, 30);
+		this.mainView.add(countryCbx);
 		
 		JLabel ageLbl = new JLabel("Age:");
 		ageLbl.setBounds(1, 245, 130, 20);
@@ -90,25 +97,47 @@ public class RegisterView {
 		genderLbl.setHorizontalAlignment(SwingConstants.CENTER);
 		this.mainView.add(genderLbl);
 
-		this.genderLbl = new JTextField();
-		this.genderLbl.setBounds(40, 325, 420, 30);
-		this.mainView.add(this.genderLbl);
+		JComboBox<String> genderCbx = new JComboBox<String>(GENDER_OPTS);
+		genderCbx.setBounds(40, 325, 420, 30);
+		this.mainView.add(genderCbx);
+		
+		
+		JLabel usuarioLbl = new JLabel("Username:");
+		usuarioLbl.setBounds(10, 360, 130, 20);
+		usuarioLbl.setFont(new Font("Serif", Font.PLAIN, 16));
+		usuarioLbl.setHorizontalAlignment(SwingConstants.CENTER);
+		this.mainView.add(usuarioLbl);
+
+		this.userFld = new JTextField();
+		this.userFld.setBounds(40, 380, 420, 30);
+		this.mainView.add(this.userFld);
+
+		JLabel passwordLbl = new JLabel("Password:");
+		passwordLbl.setBounds(10, 410, 130, 20);
+		passwordLbl.setFont(new Font("Serif", Font.PLAIN, 16));
+		passwordLbl.setHorizontalAlignment(SwingConstants.CENTER);
+		this.mainView.add(passwordLbl);
+
+		this.passwordFld = new JTextField();
+		this.passwordFld.setBounds(40, 435, 420, 30);
+		this.mainView.add(this.passwordFld);
+		
 		
 		JLabel descriptionLbl = new JLabel("Description:");
-		descriptionLbl.setBounds(20, 370, 130, 20);
+		descriptionLbl.setBounds(20, 470, 130, 20);
 		descriptionLbl.setFont(new Font("Serif", Font.PLAIN, 16));
 		descriptionLbl.setHorizontalAlignment(SwingConstants.CENTER);
 		this.mainView.add(descriptionLbl);
 
 		this.descriptionLbl = new JTextField();
-		this.descriptionLbl.setBounds(40, 405, 420, 90);
+		this.descriptionLbl.setBounds(40, 505, 720, 90);
 		this.mainView.add(this.descriptionLbl);
 	
 		this.loginBtn = new JButton("Continue ");
-		this.loginBtn.setBounds(220, 510, 250, 40);
+		this.loginBtn.setBounds(400, 610, 350, 40);
 		this.mainView.add(this.loginBtn);
 
-		this.mainView.setSize(500, 600);
+		this.mainView.setSize(800, 700);
 		this.mainView.setLocationRelativeTo(null);
 		this.mainView.setTitle(" Tinder ");
 		this.mainView.setLayout(null);
@@ -142,6 +171,30 @@ public class RegisterView {
 
 	public void setGENDER_OPTS(String[] gENDER_OPTS) {
 		GENDER_OPTS = gENDER_OPTS;
+	}
+
+	public JTextField getCountryLbl() {
+		return countryLbl;
+	}
+
+	public void setCountryLbl(JTextField countryLbl) {
+		this.countryLbl = countryLbl;
+	}
+
+	public JTextField getNacionalityLbl() {
+		return nacionalityLbl;
+	}
+
+	public void setNacionalityLbl(JTextField nacionalityLbl) {
+		this.nacionalityLbl = nacionalityLbl;
+	}
+
+	public JTextField getGenderLbl() {
+		return genderLbl;
+	}
+
+	public void setGenderLbl(JTextField genderLbl) {
+		this.genderLbl = genderLbl;
 	}
 }
 	

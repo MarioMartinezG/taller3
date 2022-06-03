@@ -47,10 +47,6 @@ public class LoginView {
 		this.loginBtn.setBounds(120, 210, 250, 40);
 		this.mainView.add(this.loginBtn);
 
-		//this.registarBtn = new JButton("Registrarme");
-		//this.registarBtn.setBounds(260, 200, 200, 40);
-		//this.mainView.add(this.registarBtn);
-
 		this.mainView.setSize(500, 600);
 		this.mainView.setLocationRelativeTo(null);
 		this.mainView.setTitle(" Tinder ");
