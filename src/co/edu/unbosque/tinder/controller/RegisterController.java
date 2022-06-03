@@ -48,6 +48,8 @@ public class RegisterController {
 					user.setProfile(profile);
 
 					userModel.createUser(user, userDB);
+					
+					registerView.showConfirmationMessage("User created successfully!");
 
 					System.out.println(userDB);
 

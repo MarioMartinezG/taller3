@@ -12,7 +12,7 @@ import co.edu.unbosque.tinder.view.RegisterView;
 
 public class MainController {
 	static ArrayList<UserModel> userDB = new ArrayList<>();
-	
+
 	private MainView mainView;
 
 	/**
@@ -27,7 +27,8 @@ public class MainController {
 			public void actionPerformed(ActionEvent e) {
 
 				try {
-					new LoginController(new LoginView(), new UserModel(), userDB);			
+					new LoginController(new LoginView(), new UserModel(), userDB);
+					mainView.hideFrame();
 				} catch (Exception e1) {
 					System.out.println("Error inesperado");
 					e1.printStackTrace();
@@ -44,6 +45,7 @@ public class MainController {
 
 				try {
 					new RegisterController(new RegisterView(), new UserModel(), new ProfileModel(), userDB);
+					mainView.hideFrame();
 				} catch (Exception e1) {
 					System.out.println("Error inesperado");
 					e1.printStackTrace();

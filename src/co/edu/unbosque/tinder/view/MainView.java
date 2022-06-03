@@ -43,6 +43,14 @@ public class MainView {
 	public void showErrorMessage(String message) {
 		JOptionPane.showMessageDialog(this.mainView, message, "Error", JOptionPane.ERROR_MESSAGE);
 	}
+	
+	public void hideFrame() {
+		this.mainView.setVisible(false);
+	}
+	
+	public void showFrame() {
+		this.mainView.setVisible(true);
+	}
 
 	public JButton getLoginBtn() {
 		return loginBtn;
