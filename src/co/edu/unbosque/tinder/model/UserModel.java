@@ -1,10 +1,11 @@
 package co.edu.unbosque.tinder.model;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class UserModel {
 	private String username;
-	private String password;
+	private char[] password;
 	private ProfileModel profile;
 	private PreferenceModel preference;
 
@@ -12,7 +13,7 @@ public class UserModel {
 	 * @param user
 	 * @param password
 	 */
-	public UserModel(String user, String password) {
+	public UserModel(String user, char[] password) {
 		this.setUser(user);
 		this.setPassword(password);
 	}
@@ -38,14 +39,14 @@ public class UserModel {
 	/**
 	 * @return the password
 	 */
-	public String getPassword() {
+	public char[] getPassword() {
 		return password;
 	}
 
 	/**
 	 * @param password the password to set
 	 */
-	public void setPassword(String password) {
+	public void setPassword(char[] password) {
 		this.password = password;
 	}
 
@@ -77,9 +78,9 @@ public class UserModel {
 	 * @param userDB
 	 * @return login
 	 */
-	public UserModel login(String username, String password, ArrayList<UserModel> userDB) {
+	public UserModel login(String username, char[] password, ArrayList<UserModel> userDB) {
 		for (UserModel user : userDB) {
-			if (username.equals(user.getUser()) && password.equals(user.getPassword())) {
+			if (username.equals(user.getUser()) && Arrays.equals(password, user.getPassword())) {
 				return user;
 			}
 		}
@@ -87,15 +88,13 @@ public class UserModel {
 		return null;
 	}
 
-	public void createUser(String username, String password, ArrayList<UserModel> userDB) {
-		UserModel newUser = new UserModel(username, password);
-
-		userDB.add(newUser);
+	public void createUser(UserModel user, ArrayList<UserModel> userDB) {
+		userDB.add(user);
 	}
 
 	@Override
 	public String toString() {
-		return "UserModel [username=" + username + ", password=" + password + ", profile=" + profile + "]";
+		return "UserModel [username=" + username + ", password=" + password.toString() + ", profile=" + profile + "]";
 	}
 
 }

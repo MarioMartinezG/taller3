@@ -7,18 +7,28 @@ public class ProfileModel {
 	private String city;
 	private String gender;
 	private String description;
-	private boolean isComplete;
 
 	/**
 	 * @param name
+	 * @param age
+	 * @param nationality
+	 * @param city
+	 * @param gender
+	 * @param description
 	 */
-	public ProfileModel(String name) {
-		this.setName(name);
-		this.setComplete(false);
+	/*
+	public ProfileModel(String name, int age, String nationality, String city, String gender, String description) {
+		this.name = name;
+		this.age = age;
+		this.nationality = nationality;
+		this.city = city;
+		this.gender = gender;
+		this.description = description;
 	}
-
+	*/
+	
 	public ProfileModel() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	/**
@@ -105,18 +115,10 @@ public class ProfileModel {
 		this.description = description;
 	}
 
-	/**
-	 * @return the isComplete
-	 */
-	public boolean isComplete() {
-		return isComplete;
-	}
-
-	/**
-	 * @param isComplete the isComplete to set
-	 */
-	public void setComplete(boolean isComplete) {
-		this.isComplete = isComplete;
+	@Override
+	public String toString() {
+		return "ProfileModel [name=" + name + ", age=" + age + ", nationality=" + nationality + ", city=" + city
+				+ ", gender=" + gender + ", description=" + description + "]";
 	}
 
 }

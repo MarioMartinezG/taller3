@@ -6,7 +6,7 @@ import javax.swing.*;
 public class LoginView {
 	private JFrame mainView;
 	private JTextField userFld;
-	private JTextField passwordFld;
+	private JPasswordField passwordFld;
 	private JButton loginBtn;
 	private JButton registerBtn;
 
@@ -39,11 +39,11 @@ public class LoginView {
 		passwordLbl.setHorizontalAlignment(SwingConstants.CENTER);
 		this.mainView.add(passwordLbl);
 
-		this.passwordFld = new JTextField();
+		this.passwordFld = new JPasswordField();
 		this.passwordFld.setBounds(40, 155, 420, 30);
 		this.mainView.add(this.passwordFld);
 
-		this.loginBtn = new JButton("Iniciar Sesión");
+		this.loginBtn = new JButton("Sign In");
 		this.loginBtn.setBounds(120, 210, 250, 40);
 		this.mainView.add(this.loginBtn);
 
@@ -63,7 +63,7 @@ public class LoginView {
 		return userFld;
 	}
 
-	public JTextField getPasswordFld() {
+	public JPasswordField getPasswordFld() {
 		return passwordFld;
 	}
 
