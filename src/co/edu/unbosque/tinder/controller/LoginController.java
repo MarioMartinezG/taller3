@@ -5,8 +5,10 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import co.edu.unbosque.tinder.model.UserModel;
+import co.edu.unbosque.tinder.view.LoginView;
 import co.edu.unbosque.tinder.view.MainView;
 import co.edu.unbosque.tinder.view.MenuView;
+import co.edu.unbosque.tinder.view.RegisterView;
 
 public class LoginController {
 	static ArrayList<UserModel> userDB = new ArrayList<>();
@@ -65,6 +67,9 @@ public class LoginController {
 
 		}); 
 
+	}
+	public LoginController(LoginView loginView, UserModel userModel, MainView mainView2, RegisterView registerView) {
+		// TODO Auto-generated constructor stub
 	}
 
 }
