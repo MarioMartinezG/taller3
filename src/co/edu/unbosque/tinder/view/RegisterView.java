@@ -1,7 +1,9 @@
 package co.edu.unbosque.tinder.view;
 
 import java.awt.Font;
+import java.awt.Image;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -20,11 +22,13 @@ public class RegisterView {
 	private JComboBox<String> genderCbx;
 	private JPasswordField passwordFld;
 	private JTextField userFld;
-	private JTextField fotoUserLbl;
+	private JLabel imageLbl;
+	private JLabel imgLbl;
+	private JButton imageBtn;
 	private JTextField descriptionFld;
 	private JButton loginBtn;
 
-	private String[] NACIONALITY_OPTS = { " ", "Colombiano ", "Chileno ", "Mexicano", "Other" };
+	private String[] NACIONALITY_OPTS = { " ", "Colombian ", "Chilean ", "Mexican", "Other" };
 	private String[] COUNTRY_OPTS = { " ", "Bogota ", "Cali", "Ciudad de Mexico", "Medelllin", "Puebla",
 			"Santiago de Chile ", "Veracruz", "Other" };
 	private String[] GENDER_OPTS = { " ", "Female ", "Male ", "Other" };
@@ -49,15 +53,19 @@ public class RegisterView {
 		this.fullNameFld.setBounds(40, 95, 420, 30);
 		this.registerView.add(this.fullNameFld);
 
-		JLabel fotoUserLbl = new JLabel("Foto:");
-		fotoUserLbl.setBounds(500, 70, 130, 20);
-		fotoUserLbl.setFont(new Font("Serif", Font.PLAIN, 16));
-		fotoUserLbl.setHorizontalAlignment(SwingConstants.CENTER);
-		this.registerView.add(fotoUserLbl);
-
-		this.fotoUserLbl = new JTextField();
-		this.fotoUserLbl.setBounds(40, 95, 420, 30);
-		this.registerView.add(this.fotoUserLbl);
+		imageLbl = new JLabel("Profile Picture: ");
+		imageLbl.setBounds(500, 70, 130, 20);
+		imageLbl.setFont(new Font("Serif", Font.PLAIN, 16));
+		imageLbl.setHorizontalAlignment(SwingConstants.CENTER);
+		this.registerView.add(imageLbl);
+		
+		this.imgLbl = new JLabel();
+		this.imgLbl.setBounds(500, 90, 200, 200);
+		this.registerView.add(this.imgLbl);
+		
+		this.imageBtn = new JButton("Select image");
+		this.imageBtn.setBounds(500,320,150,30);
+		this.registerView.add(this.imageBtn);
 
 		JLabel nacionalityLbl = new JLabel("Nacionality:");
 		nacionalityLbl.setBounds(40, 130, 90, 20);
@@ -145,6 +153,39 @@ public class RegisterView {
 		JOptionPane.showMessageDialog(this.registerView, message, "Information", JOptionPane.INFORMATION_MESSAGE);
 		this.registerView.dispose();
 	}
+	
+	public void showErrorMessage(String message) {
+		JOptionPane.showMessageDialog(this.registerView, message, "Error", JOptionPane.ERROR_MESSAGE);
+	}
+
+	private ImageIcon resize(String imgPath) {
+		ImageIcon path = new ImageIcon(imgPath);
+		Image img = path.getImage();
+		
+		double resizeRatio = (double) this.imgLbl.getWidth() / (double) img.getWidth(null);
+		int newWidth = (int) (img.getWidth(null) * resizeRatio);
+		int newHeight = (int) (img.getHeight(null) * resizeRatio);
+		
+		Image newImg = img.getScaledInstance(newWidth, newHeight, Image.SCALE_SMOOTH);
+		ImageIcon image = new ImageIcon(newImg);
+		return image;
+    }
+	
+	public void showImage(String path) {
+		this.imgLbl.setIcon(resize(path));
+	}
+	
+	public boolean validForm() {
+		if (this.getFullNameFld().getText().length() == 0 || this.getNacionalityCbx().getSelectedItem() == null
+				|| this.getCityCbx().getSelectedItem() == null || this.getAgeFld().getText() == "0"
+				|| this.getGenderCbx().getSelectedItem() == null || this.getUserFld().getText().length() == 0
+				|| this.getPasswordFld().getPassword().length == 0
+				|| this.getDescriptionFld().getText().length() == 0) {
+			return false;
+		}
+
+		return true;
+	}
 
 	public JTextField getFullNameFld() {
 		return fullNameFld;
@@ -164,6 +205,14 @@ public class RegisterView {
 
 	public JComboBox<String> getGenderCbx() {
 		return genderCbx;
+	}
+
+	public JLabel getImageLbl() {
+		return imgLbl;
+	}
+
+	public JButton getImageBtn() {
+		return imageBtn;
 	}
 
 	public JPasswordField getPasswordFld() {

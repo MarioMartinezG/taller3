@@ -9,8 +9,6 @@ import co.edu.unbosque.tinder.view.LoginView;
 import co.edu.unbosque.tinder.view.MenuView;
 
 public class LoginController {
-	
-
 	private LoginView loginView;
 
 	/**
@@ -30,9 +28,11 @@ public class LoginController {
 					char[] password = loginView.getPasswordFld().getPassword();
 
 					UserModel loggedUser = userModel.login(username, password, userDB);
+
 					if (loggedUser != null) {
 						new MenuController(new MenuView(loggedUser), loggedUser);
-						System.out.println("Usuario encontrado!!!");
+						loginView.hideFrame();
+						System.out.println("Found the user!!!");
 					} else {
 						loginView.showErrorMessage("Username or Password not valid.");
 					}
@@ -41,8 +41,14 @@ public class LoginController {
 					e1.printStackTrace();
 				}
 			}
-
 		});
 
+		this.loginView.getReturnBtn().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				loginView.hideFrame();
+			}
+		});
 	}
 }

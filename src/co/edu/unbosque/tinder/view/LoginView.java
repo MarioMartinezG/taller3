@@ -8,7 +8,7 @@ public class LoginView {
 	private JTextField userFld;
 	private JPasswordField passwordFld;
 	private JButton loginBtn;
-	private JButton registerBtn;
+	private JButton returnBtn;
 
 	public LoginView() {
 
@@ -20,9 +20,6 @@ public class LoginView {
 		titleLbl.setHorizontalAlignment(SwingConstants.CENTER);
 		this.loginView.add(titleLbl);
 
-		this.loginView.setSize(500, 290); 
-		this.loginView.setLocationRelativeTo(null); 
-		this.loginView.setTitle(" TINDER");
 		JLabel usuarioLbl = new JLabel("Username:");
 		usuarioLbl.setBounds(10, 70, 130, 20);
 		usuarioLbl.setFont(new Font("Serif", Font.PLAIN, 16));
@@ -42,12 +39,16 @@ public class LoginView {
 		this.passwordFld = new JPasswordField();
 		this.passwordFld.setBounds(40, 155, 420, 30);
 		this.loginView.add(this.passwordFld);
-
+		
 		this.loginBtn = new JButton("Sign In");
-		this.loginBtn.setBounds(120, 210, 250, 40);
+		this.loginBtn.setBounds(40, 210, 200, 40);
 		this.loginView.add(this.loginBtn);
 
-		this.loginView.setSize(500, 600);
+		this.returnBtn = new JButton("Return");
+		this.returnBtn.setBounds(260, 210, 200, 40);
+		this.loginView.add(this.returnBtn);
+
+		this.loginView.setSize(500, 320);
 		this.loginView.setLocationRelativeTo(null);
 		this.loginView.setTitle(" Tinder ");
 		this.loginView.setLayout(null);
@@ -57,6 +58,14 @@ public class LoginView {
 
 	public void showErrorMessage(String message) {
 		JOptionPane.showMessageDialog(this.loginView, message, "Error", JOptionPane.ERROR_MESSAGE);
+	}
+	
+	public void hideFrame() {
+		this.loginView.setVisible(false);
+	}
+	
+	public void showFrame() {
+		this.loginView.setVisible(true);
 	}
 
 	public JTextField getUserFld() {
@@ -71,7 +80,7 @@ public class LoginView {
 		return loginBtn;
 	}
 
-	public JButton getRegistarBtn() {
-		return registerBtn;
+	public JButton getReturnBtn() {
+		return returnBtn;
 	}
 }
