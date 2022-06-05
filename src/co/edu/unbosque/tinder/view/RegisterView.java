@@ -77,11 +77,11 @@ public class RegisterView {
 		nacionalityCbx.setBounds(40, 155, 420, 30);
 		this.registerView.add(nacionalityCbx);
 
-		JLabel countryLbl = new JLabel("City of residence:");
-		countryLbl.setBounds(40, 190, 130, 20);
-		countryLbl.setFont(new Font("Serif", Font.PLAIN, 16));
-		countryLbl.setHorizontalAlignment(SwingConstants.CENTER);
-		this.registerView.add(countryLbl);
+		JLabel cityLbl = new JLabel("City of residence:");
+		cityLbl.setBounds(40, 190, 130, 20);
+		cityLbl.setFont(new Font("Serif", Font.PLAIN, 16));
+		cityLbl.setHorizontalAlignment(SwingConstants.CENTER);
+		this.registerView.add(cityLbl);
 
 		cityCbx = new JComboBox<String>(COUNTRY_OPTS);
 		cityCbx.setBounds(40, 215, 420, 30);

@@ -43,7 +43,8 @@ public class MainController {
 			public void actionPerformed(ActionEvent e) {
 
 				try {
-					new LoginController(new LoginView(), new UserModel(), userDB);
+					new LoginController(new LoginView(), mainView, new UserModel(), userDB);
+					mainView.hideFrame();
 				} catch (Exception e1) {
 					System.out.println("Error inesperado");
 					e1.printStackTrace();
@@ -57,7 +58,8 @@ public class MainController {
 			public void actionPerformed(ActionEvent e) {
 
 				try {
-					new RegisterController(new RegisterView(), new UserModel(), new ProfileModel(), userDB);
+					new RegisterController(new RegisterView(), mainView, new UserModel(), new ProfileModel(), userDB);
+					mainView.hideFrame();
 				} catch (Exception e1) {
 					System.out.println("Error inesperado");
 					e1.printStackTrace();

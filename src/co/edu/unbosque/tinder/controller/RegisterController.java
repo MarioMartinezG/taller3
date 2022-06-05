@@ -11,6 +11,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 import co.edu.unbosque.tinder.model.ProfileModel;
 import co.edu.unbosque.tinder.model.UserModel;
+import co.edu.unbosque.tinder.view.MainView;
 import co.edu.unbosque.tinder.view.RegisterView;
 
 public class RegisterController {
@@ -19,11 +20,10 @@ public class RegisterController {
 	private UserModel userModel;
 	private ProfileModel profileModel;
 
-	public RegisterController(RegisterView registerView, UserModel user, ProfileModel profile,
+	public RegisterController(RegisterView registerView, MainView mainView, UserModel user, ProfileModel profile,
 			ArrayList<UserModel> userDB) {
 		this.registerView = registerView;
 		this.userModel = user;
-		this.profileModel = profile;
 
 		this.registerView.getImageBtn().addActionListener(new ActionListener() {
 
@@ -55,14 +55,7 @@ public class RegisterController {
 
 				try {
 					String fullName = registerView.getFullNameFld().getText();
-
-					int age;
-					try {
-						age = Integer.parseInt(registerView.getAgeFld().getText());
-					} catch (Exception e1) {
-						e1.printStackTrace();
-						age = 0;
-					}
+					int age = Integer.parseInt(registerView.getAgeFld().getText());
 
 					String nationality = (String) registerView.getNacionalityCbx().getSelectedItem();
 					String city = (String) registerView.getCityCbx().getSelectedItem();
@@ -92,15 +85,18 @@ public class RegisterController {
 							userModel.createUser(user, userDB);
 
 							registerView.showConfirmationMessage("User created successfully!");
-							System.out.println(userDB);
+							mainView.showFrame();
 						}
 					} else {
 						registerView.showErrorMessage("You must fill out all fields to continue");
 					}
 
-				} catch (Exception e1) {
+				} catch (NumberFormatException e2) {
+					registerView.showErrorMessage("Age must be a Number");
+				}
+				catch (Exception e2) {
 					System.out.println("Error inesperado");
-					e1.printStackTrace();
+					e2.printStackTrace();
 				}
 			}
 

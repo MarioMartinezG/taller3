@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import co.edu.unbosque.tinder.model.UserModel;
 import co.edu.unbosque.tinder.view.LoginView;
+import co.edu.unbosque.tinder.view.MainView;
 import co.edu.unbosque.tinder.view.MenuView;
 
 public class LoginController {
@@ -15,9 +16,8 @@ public class LoginController {
 	 * @param loginView
 	 * @param userModel
 	 */
-	public LoginController(LoginView loginView, UserModel userModel, ArrayList<UserModel> userDB) {
+	public LoginController(LoginView loginView, MainView mainView, UserModel userModel, ArrayList<UserModel> userDB) {
 		this.loginView = loginView;
-		System.out.println(userDB);
 		this.loginView.getLoginBtn().addActionListener(new ActionListener() {
 
 			@Override
@@ -30,9 +30,8 @@ public class LoginController {
 					UserModel loggedUser = userModel.login(username, password, userDB);
 
 					if (loggedUser != null) {
-						new MenuController(new MenuView(loggedUser), loggedUser);
+						new MenuController(new MenuView(loggedUser), mainView, loggedUser);
 						loginView.hideFrame();
-						System.out.println("Found the user!!!");
 					} else {
 						loginView.showErrorMessage("Username or Password not valid.");
 					}
@@ -48,6 +47,7 @@ public class LoginController {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				loginView.hideFrame();
+				mainView.showFrame();
 			}
 		});
 	}
