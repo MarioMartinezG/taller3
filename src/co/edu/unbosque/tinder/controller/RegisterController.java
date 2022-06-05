@@ -27,7 +27,6 @@ public class RegisterController {
 		this.registerView.getImageBtn().addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-
 				JFileChooser chooser = new JFileChooser();
 				chooser.setCurrentDirectory(
 						new File(System.getProperty("user.home") + System.getProperty("file.separator") + "Downloads"));
@@ -43,6 +42,7 @@ public class RegisterController {
 					String path = selFile.getAbsolutePath();
 					System.out.println(path);
 					registerView.showImage(path);
+					profile.setProfilePic(path);
 				}
 			}
 

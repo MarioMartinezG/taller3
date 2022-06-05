@@ -180,7 +180,7 @@ public class RegisterView {
 				|| this.getCityCbx().getSelectedItem() == null || this.getAgeFld().getText() == "0"
 				|| this.getGenderCbx().getSelectedItem() == null || this.getUserFld().getText().length() == 0
 				|| this.getPasswordFld().getPassword().length == 0
-				|| this.getDescriptionFld().getText().length() == 0) {
+				|| this.getDescriptionFld().getText().length() == 0 || this.getImageLbl().getIcon() == null) {
 			return false;
 		}
 

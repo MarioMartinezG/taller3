@@ -7,6 +7,7 @@ public class ProfileModel {
 	private String city;
 	private String gender;
 	private String description;
+	private String profilePic;
 
 	/**
 	 * @param name
@@ -113,6 +114,20 @@ public class ProfileModel {
 	 */
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	/**
+	 * @return the profilePic
+	 */
+	public String getProfilePic() {
+		return profilePic;
+	}
+
+	/**
+	 * @param profilePic the profilePic to set
+	 */
+	public void setProfilePic(String profilePic) {
+		this.profilePic = profilePic;
 	}
 
 	@Override
