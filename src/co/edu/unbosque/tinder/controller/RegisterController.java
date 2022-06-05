@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.ArrayList;
 
+import javax.swing.Icon;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -42,7 +43,6 @@ public class RegisterController {
 					String path = selFile.getAbsolutePath();
 					System.out.println(path);
 					registerView.showImage(path);
-					profile.setProfilePic(path);
 				}
 			}
 
@@ -68,6 +68,7 @@ public class RegisterController {
 					String city = (String) registerView.getCityCbx().getSelectedItem();
 					String gender = (String) registerView.getGenderCbx().getSelectedItem();
 					String description = registerView.getDescriptionFld().getText();
+					Icon profilePic = registerView.getImageLbl().getIcon();
 
 					String userName = registerView.getUserFld().getText();
 					char[] password = registerView.getPasswordFld().getPassword();
@@ -79,6 +80,7 @@ public class RegisterController {
 						profile.setCity(city);
 						profile.setGender(gender);
 						profile.setDescription(description);
+						profile.setProfilePic(profilePic);						
 
 						if (user.login(userName, password, userDB) != null) {
 							registerView.showErrorMessage("That Username is already being used.");

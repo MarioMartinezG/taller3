@@ -1,5 +1,7 @@
 package co.edu.unbosque.tinder.model;
 
+import javax.swing.Icon;
+
 public class ProfileModel {
 	private String name;
 	private int age;
@@ -7,7 +9,7 @@ public class ProfileModel {
 	private String city;
 	private String gender;
 	private String description;
-	private String profilePic;
+	private Icon profilePic;
 
 	/**
 	 * @param name
@@ -119,21 +121,21 @@ public class ProfileModel {
 	/**
 	 * @return the profilePic
 	 */
-	public String getProfilePic() {
+	public Icon getProfilePic() {
 		return profilePic;
 	}
 
 	/**
 	 * @param profilePic the profilePic to set
 	 */
-	public void setProfilePic(String profilePic) {
+	public void setProfilePic(Icon profilePic) {
 		this.profilePic = profilePic;
 	}
 
 	@Override
 	public String toString() {
 		return "ProfileModel [name=" + name + ", age=" + age + ", nationality=" + nationality + ", city=" + city
-				+ ", gender=" + gender + ", description=" + description + "]";
+				+ ", gender=" + gender + ", description=" + description + ", profilePic=" + profilePic + "]";
 	}
 
 }
