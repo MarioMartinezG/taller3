@@ -30,7 +30,7 @@ public class LoginController {
 					UserModel loggedUser = userModel.login(username, password, userDB);
 
 					if (loggedUser != null) {
-						new MenuController(new MenuView(loggedUser), mainView, loggedUser);
+						new MenuController(new MenuView(loggedUser), mainView, loggedUser, userDB);
 						loginView.hideFrame();
 					} else {
 						loginView.showErrorMessage("Username or Password not valid.");

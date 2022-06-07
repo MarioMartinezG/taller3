@@ -1,7 +1,10 @@
 package co.edu.unbosque.tinder.view;
 
 import java.awt.Font;
+import java.awt.Image;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -11,6 +14,7 @@ import co.edu.unbosque.tinder.model.UserModel;
 
 public class MenuView {
 	private JFrame menuView;
+	private JLabel profilePicLbl;
 	private JButton preferenceBtn;
 	private JButton matchBtn;
 	private JButton seeMatchBtn;
@@ -25,7 +29,7 @@ public class MenuView {
 		optionLbl.setHorizontalAlignment(SwingConstants.CENTER);
 		this.menuView.add(optionLbl);
 
-		JLabel profilePicLbl = new JLabel(loggedUser.getProfile().getProfilePic());
+		profilePicLbl = new JLabel();
 		profilePicLbl.setBounds(40, 60, 200, 200);
 		this.menuView.add(profilePicLbl);
 
@@ -71,13 +75,30 @@ public class MenuView {
 		this.menuView.setLayout(null);
 		this.menuView.setVisible(true);
 	}
-	
+
 	public void hideFrame() {
-		this.menuView.setVisible(false);;
+		this.menuView.setVisible(false);
+		;
 	}
-	
+
 	public void showFrame() {
 		this.menuView.setVisible(true);
+	}
+	
+	public Image getImageFromFS(String filename) {
+		try {
+			return ImageIO.read(getClass().getResourceAsStream("/"+ filename));
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	/**
+	 * @return the profilePicLbl
+	 */
+	public JLabel getProfilePicLbl() {
+		return profilePicLbl;
 	}
 
 	public JButton getPreferenceBtn() {

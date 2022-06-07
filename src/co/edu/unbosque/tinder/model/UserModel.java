@@ -8,14 +8,19 @@ public class UserModel {
 	private char[] password;
 	private ProfileModel profile;
 	private PreferenceModel preference;
-
+	private ArrayList<UserModel> likedUsers = new ArrayList<UserModel>();
+	
 	/**
-	 * @param user
+	 * @param username
 	 * @param password
+	 * @param profile
+	 * @param preference
 	 */
-	public UserModel(String user, char[] password) {
-		this.setUser(user);
-		this.setPassword(password);
+	public UserModel(String username, char[] password, ProfileModel profile, PreferenceModel preference) {
+		this.username = username;
+		this.password = password;
+		this.profile = profile;
+		this.preference = preference;
 	}
 
 	public UserModel() {
@@ -70,6 +75,20 @@ public class UserModel {
 
 	public void setPreference(PreferenceModel preference) {
 		this.preference = preference;
+	}
+
+	/**
+	 * @return the likedUsers
+	 */
+	public ArrayList<UserModel> getLikedUsers() {
+		return likedUsers;
+	}
+
+	/**
+	 * @param likedUsers the likedUsers to set
+	 */
+	public void setLikedUsers(ArrayList<UserModel> likedUsers) {
+		this.likedUsers = likedUsers;
 	}
 
 	/**

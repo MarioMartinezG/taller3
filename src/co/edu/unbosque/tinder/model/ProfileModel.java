@@ -1,5 +1,7 @@
 package co.edu.unbosque.tinder.model;
 
+import java.util.ArrayList;
+
 import javax.swing.Icon;
 
 public class ProfileModel {
@@ -10,6 +12,8 @@ public class ProfileModel {
 	private String gender;
 	private String description;
 	private Icon profilePic;
+	private String dummyProfPic;
+	private ArrayList<UserModel> likedUser; 
 
 	/**
 	 * @param name
@@ -18,20 +22,22 @@ public class ProfileModel {
 	 * @param city
 	 * @param gender
 	 * @param description
+	 * @param profilePic
+	 * @param dummyProfPic
 	 */
-	/*
-	public ProfileModel(String name, int age, String nationality, String city, String gender, String description) {
+	public ProfileModel(String name, int age, String nationality, String city, String gender, String description,
+			String dummyProfPic) {
 		this.name = name;
 		this.age = age;
 		this.nationality = nationality;
 		this.city = city;
 		this.gender = gender;
 		this.description = description;
+		this.dummyProfPic = dummyProfPic;
 	}
-	*/
-	
+
 	public ProfileModel() {
-		
+
 	}
 
 	/**
@@ -130,6 +136,20 @@ public class ProfileModel {
 	 */
 	public void setProfilePic(Icon profilePic) {
 		this.profilePic = profilePic;
+	}
+
+	/**
+	 * @return the dummyProfPic
+	 */
+	public String getDummyProfPic() {
+		return dummyProfPic;
+	}
+
+	/**
+	 * @return the likedUser
+	 */
+	public ArrayList<UserModel> getLikedUser() {
+		return likedUser;
 	}
 
 	@Override

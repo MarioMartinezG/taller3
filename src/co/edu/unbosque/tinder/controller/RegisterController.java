@@ -18,7 +18,6 @@ public class RegisterController {
 
 	private RegisterView registerView;
 	private UserModel userModel;
-	private ProfileModel profileModel;
 
 	public RegisterController(RegisterView registerView, MainView mainView, UserModel user, ProfileModel profile,
 			ArrayList<UserModel> userDB) {
